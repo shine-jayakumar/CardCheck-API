@@ -80,7 +80,16 @@
     "status_code": "420"
   }
   ```
-
+  **500:** Internal Server Error
+    ```json
+    {
+      "result": {
+          "error": "Internal Server Error"
+      },
+      "status": "failed",
+      "status_code": "500"
+    }
+    ```
 * #### Sample Call
   **Curl:**
   ```curl
