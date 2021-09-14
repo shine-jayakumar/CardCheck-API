@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>CardCheck-API Docs</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="CardCheckAPI_0"></a>CardCheck-API</h1>
+<hr>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Validates a card number and returns the status and issuing network in json format</p>
+<ul>
+<li class="has-line-data" data-line-start="4" data-line-end="8">
+<h4 class="code-line" data-line-start=4 data-line-end=5><a id="URL_4"></a>URL</h4>
+<p class="has-line-data" data-line-start="6" data-line-end="7">/api/cc/:cardnumber</p>
+</li>
+<li class="has-line-data" data-line-start="8" data-line-end="12">
+<h4 class="code-line" data-line-start=8 data-line-end=9><a id="Method_8"></a>Method</h4>
+<p class="has-line-data" data-line-start="10" data-line-end="11"><code>GET</code></p>
+</li>
+<li class="has-line-data" data-line-start="12" data-line-end="18">
+<h4 class="code-line" data-line-start=12 data-line-end=13><a id="URL_Params_12"></a>URL Params</h4>
+<p class="has-line-data" data-line-start="14" data-line-end="15"><strong>Required:</strong></p>
+<p class="has-line-data" data-line-start="16" data-line-end="17"><code>cardnumber=[integer]</code></p>
+</li>
+<li class="has-line-data" data-line-start="18" data-line-end="22">
+<h4 class="code-line" data-line-start=18 data-line-end=19><a id="Data_Params_18"></a>Data Params</h4>
+<p class="has-line-data" data-line-start="20" data-line-end="21">None</p>
+</li>
+<li class="has-line-data" data-line-start="22" data-line-end="39">
+<h4 class="code-line" data-line-start=22 data-line-end=23><a id="Success_Response_22"></a>Success Response:</h4>
+<pre><code class="has-line-data" data-line-start="25" data-line-end="38" class="language-json">{
+ "<span class="hljs-attribute">result</span>":<span class="hljs-value">{
+    "<span class="hljs-attribute">cardnumber</span>":<span class="hljs-value"><span class="hljs-string">"5100000010001004"</span></span>,
+    "<span class="hljs-attribute">is_valid</span>":<span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">issuing_network</span>":<span class="hljs-value">[
+       <span class="hljs-string">"Mastercard"</span>
+    ]</span>,
+    "<span class="hljs-attribute">length</span>":<span class="hljs-value"><span class="hljs-number">16</span>
+ </span>}</span>,
+ "<span class="hljs-attribute">status</span>":<span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+ "<span class="hljs-attribute">status_code</span>":<span class="hljs-value"><span class="hljs-string">"200"</span>
+</span>}
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="39" data-line-end="93">
+<h4 class="code-line" data-line-start=39 data-line-end=40><a id="Error_Response_39"></a>Error Response</h4>
+<p class="has-line-data" data-line-start="41" data-line-end="42"><strong>404:</strong> Endpoint does not exist</p>
+<pre><code class="has-line-data" data-line-start="44" data-line-end="52" class="language-json">{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"Resource not found. Please refer to the documentation."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+  "<span class="hljs-attribute">status_code</span>": <span class="hljs-value"><span class="hljs-string">"404"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="52" data-line-end="53"><strong>405:</strong> A method except GET was used</p>
+<pre><code class="has-line-data" data-line-start="54" data-line-end="62" class="language-json">{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"This method type is not currently supported. Please refer to the documentation."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+  "<span class="hljs-attribute">status_code</span>": <span class="hljs-value"><span class="hljs-string">"405"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="62" data-line-end="63"><strong>419:</strong> Argument (cardnumber) missing</p>
+<pre><code class="has-line-data" data-line-start="64" data-line-end="72" class="language-json">{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"The requested resource is missing required arguments. Please refer to the documentation."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+  "<span class="hljs-attribute">status_code</span>": <span class="hljs-value"><span class="hljs-string">"419"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="72" data-line-end="73"><strong>420:</strong> Invalid arguments. Card number can only be digits not more than 20 characters.</p>
+<pre><code class="has-line-data" data-line-start="74" data-line-end="82" class="language-json">{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"The requested resource does not support one or more of the given parameters. Please refer to the documentation."</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+  "<span class="hljs-attribute">status_code</span>": <span class="hljs-value"><span class="hljs-string">"420"</span>
+</span>}
+</code></pre>
+<p class="has-line-data" data-line-start="82" data-line-end="83"><strong>500:</strong> Internal Server Error</p>
+<pre><code class="has-line-data" data-line-start="84" data-line-end="92" class="language-json">{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-string">"Internal Server Error"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+  "<span class="hljs-attribute">status_code</span>": <span class="hljs-value"><span class="hljs-string">"500"</span>
+</span>}
+</code></pre>
+</li>
+<li class="has-line-data" data-line-start="93" data-line-end="115">
+<h4 class="code-line" data-line-start=93 data-line-end=94><a id="Sample_Call_93"></a>Sample Call</h4>
+<p class="has-line-data" data-line-start="94" data-line-end="95"><strong>Curl:</strong></p>
+<pre><code class="has-line-data" data-line-start="96" data-line-end="98" class="language-curl">curl https://cardcheck-api.herokuapp.com/api/cc/5100000010001004
+</code></pre>
+<p class="has-line-data" data-line-start="99" data-line-end="100"><strong>Python:</strong></p>
+<pre><code class="has-line-data" data-line-start="101" data-line-end="105" class="language-python">  <span class="hljs-keyword">import</span> requests
+  response = requests.get(<span class="hljs-string">"https://cardcheck-api.herokuapp.com/api/cc/5100000010001004"</span>)
+  print(response)
+</code></pre>
+<p class="has-line-data" data-line-start="105" data-line-end="106"><strong>JavaScript:</strong></p>
+<pre><code class="has-line-data" data-line-start="107" data-line-end="114" class="language-javascript"><span class="hljs-comment">// GET Request.</span>
+fetch(<span class="hljs-string">'https://cardcheck-api.herokuapp.com/api/cc/5100000010001004'</span>)
+<span class="hljs-comment">// Handle success</span>
+.then(response =&gt; response.json())  <span class="hljs-comment">// convert to json</span>
+.then(json =&gt; <span class="hljs-built_in">console</span>.log(json))    <span class="hljs-comment">//print data to console</span>
+.catch(err =&gt; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Request Failed'</span>, err)); <span class="hljs-comment">// Catch errors</span>
+</code></pre>
+</li>
+</ul>
+<br/>
+<p class="has-line-data" data-line-start="115" data-line-end="116"><strong>Source Code on GitHub at:</strong>
+<a href="https://github.com/shine-jayakumar/cardcheck-api">https://github.com/shine-jayakumar/cardcheck-api</a>
+</p>
+</body></html>
