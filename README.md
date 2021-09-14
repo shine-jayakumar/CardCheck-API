@@ -54,10 +54,10 @@
   ```json
   {
     "result": {
-        "error": "Resource not found. Please refer to the documentation."
+        "error": "This method type is not currently supported. Please refer to the documentation."
     },
     "status": "failed",
-    "status_code": "404"
+    "status_code": "405"
   }
   ```
   **419:** Argument (cardnumber) missing
