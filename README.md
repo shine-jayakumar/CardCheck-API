@@ -111,3 +111,10 @@
   .then(json => console.log(json))    //print data to console
   .catch(err => console.log('Request Failed', err)); // Catch errors
    ```
+   
+  #### ABOUT
+  CardCheck-API was written by [Shine Jayakumar](https://github.com/shine-jayakumar).
+  More features to be added to the API soon.
+   
+  #### LICENSE
+  [MIT LICENSE](https://github.com/shine-jayakumar/CardCheck-API/blob/main/LICENSE)
