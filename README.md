@@ -114,7 +114,7 @@
    
   #### ABOUT
   CardCheck-API was written by [Shine Jayakumar](https://github.com/shine-jayakumar).
-  More features to be added to the API soon.
+  More features are to be added to the API soon.
    
   #### LICENSE
   [MIT LICENSE](https://github.com/shine-jayakumar/CardCheck-API/blob/main/LICENSE)
