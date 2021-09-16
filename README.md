@@ -3,6 +3,7 @@
 ----
   Validates a card number and returns the status and issuing network in json format
 
+![CardCheck-API](https://github.com/shine-jayakumar/CardCheck-API/blob/main/cardcheck-api.PNG)
 * #### URL
 
   /api/cc/:cardnumber
