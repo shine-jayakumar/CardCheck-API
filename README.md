@@ -1,4 +1,5 @@
 # CardCheck-API
+![MIT License](https://img.shields.io/github/license/shine-jayakumar/Covid19-Exploratory-Analysis-With-SQL)
 ----
   Validates a card number and returns the status and issuing network in json format
 
